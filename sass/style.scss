@@ -1,0 +1,49 @@
+@import 'variables';
+@import 'mixins';
+
+
+
+body{
+    @include theme(light);
+    h1{
+        color: blue;
+    }
+    main{
+        border: 2px solid;
+        p{
+           @include borderStyling(red);
+            &:hover{
+                background-color: $bgcolor;
+            }
+        }
+    }
+    footer{
+        li:nth-child(1){
+            background-color:$bgcolor;
+            @include borderStyling(red);
+        }
+        li:nth-child(2){
+            background-color:$bgcolor;
+            @include borderStyling(blue);
+        }
+        li:nth-child(3){
+            background-color:$bgcolor;
+            margin: 10px;
+            @include borderStyling(red);
+        }
+      }
+
+      @each $name , $color in $colors {
+        .#{$name}{
+            background-color: $color;
+            border: 1px solid;
+            outline: none;
+            padding: 10px;
+        }
+      }
+   
+}
+
+
+
+
